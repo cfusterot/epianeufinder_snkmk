@@ -1,0 +1,8 @@
+name: nmf
+channels:
+  - conda-forge
+  - bioconda
+  - anaconda
+dependencies:
+  - r-nmf
+  - r-ggplot2

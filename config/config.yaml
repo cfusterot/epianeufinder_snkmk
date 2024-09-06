@@ -1,0 +1,28 @@
+# This file should contain everything to configure the workflow on a global scale.
+# It should be complemented by a samples.tsv file that contains one row per sample.
+# The units.tsv file should contain the location of each project folder
+# (containing fastq files).
+
+# -- Samples configuration -- #
+samples: "config/samples.tsv"
+units: "config/units.tsv"
+out: "/data/cephfs-1/work/projects/damm-scmm/Results/epianeufinder/out"
+log: "/data/cephfs-1/work/projects/damm-scmm/Result/epianeufinder/log" 
+
+# -- Params -- #
+epianeufinder:
+    windowSize: 1e5
+    blacklist: "/data/cephfs-1/home/users/cofu10_c/work/references/blacklists/hg38-blacklist.v2.bed"
+    genome: "BSgenome.Hsapiens.UCSC.hg38"
+    reuse.existing: FALSE
+
+# -- Cluster resources configuration -- #
+resources:
+    default:
+        threads: 1
+        walltime: 480
+        mem_mb: 8000
+    epianeufinder:
+        threads: 2
+        mem_mb: 640000
+        walltime: 14400
