@@ -21,7 +21,7 @@ path_to_files <- snakemake@input[['path']]
 path_to_out <- snakemake@params[['dir']]
 windowSize=snakemake@params[['windowSize']]
 blacklist=snakemake@params[['blacklist']]
-genome=snakemake@params[['nrun']]
+genome=snakemake@params[['genome']]
 reuse.existing=snakemake@params[['reuse']]
 
 # -- Setting directories and paths -- # 
