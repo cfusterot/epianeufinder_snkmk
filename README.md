@@ -1,1 +1,1 @@
-### NMF-based clonotype calling
+### CNV analysis via EpianeufindeR
