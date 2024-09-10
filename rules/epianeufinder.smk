@@ -4,9 +4,9 @@ from pathlib import Path
 
 rule epianeufinder:
     input:
-       path = lambda wc: expand("{dir}/{{sample}}/", dir=units.loc[wc.sample]['path'])
+       path = lambda wc: expand("{dir}/{sample}/", dir=units.loc[wc.sample]['path'], sample = units.loc[wc.sample]['sample'])
     output:
-       "{}/{{sample}}/epianeufinder_results/Karyogram.png".format(OUTDIR)
+       "{}/{{sample}}/epiAneufinder_results/Karyogram.png".format(OUTDIR)
     params:
        dir=directory("{}/{{sample}}/").format(OUTDIR),
        sample_id="{{sample}}",

@@ -7,7 +7,7 @@
 samples: "config/samples.tsv"
 units: "config/units.tsv"
 out: "/data/cephfs-1/work/projects/damm-scmm/Results/epianeufinder/out"
-log: "/data/cephfs-1/work/projects/damm-scmm/Result/epianeufinder/log" 
+log: "/data/cephfs-1/work/projects/damm-scmm/Results/epianeufinder/log" 
 
 # -- Params -- #
 epianeufinder:
@@ -24,5 +24,5 @@ resources:
         mem_mb: 8000
     epianeufinder:
         threads: 2
-        mem_mb: 640000
-        walltime: 14400
+        mem_mb: 160000
+        walltime: 2880

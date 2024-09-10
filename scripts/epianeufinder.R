@@ -25,10 +25,11 @@ genome=snakemake@params[['genome']]
 reuse.existing=snakemake@params[['reuse']]
 
 # -- Setting directories and paths -- # 
-dir.create(file.path(path_to_files,"cnv_custom"))
+#dir.create(file.path(path_to_files,"cnv_custom"))
 path_to_fragments <- file.path(path_to_files, "cellranger_count", "outs", "fragments.tsv.gz")
 filtered_experiment <- list.files(file.path(path_to_files, "RDS_Files"), full.names = TRUE)
-filtered_fragments_path <- file.path(path_to_files,"cnv_custom")
+#filtered_fragments_path <- file.path(path_to_files,"cnv_custom")
+filtered_fragments_path <- path_to_files
 
 # -- Filter cells in original fragment file -- #
 message(paste0("Reading sample ", x, " single-cell RDS"))
@@ -55,12 +56,11 @@ message(paste0("Setting windowSize parameter to ",windowSize))
 message(paste0("Running epianeufinder for sample ", x))
 message(paste0("Analysing ", " fragment file", path_to_fragments))
 epiAneufinder(input = file.path(filtered_fragments_path, "filtered_fragments.tsv"), #Enter path to your fragments.tsv file or the folder containing bam files
-        outdir = file.path(path_to_out, x, "cnv_custom"), #Path to the directory where results should be written 
+        outdir = path_to_out, #Path to the directory where results should be written 
         blacklist = blacklist, #Path to .BED containing the blacklisted regions of your genome
         windowSize = windowSize, 
         genome = genome, #Substitute with relevant BSgenome
         #exclude = c('chrX','chrY', 'chrM'),
         reuse.existing = reuse.existing,
         title_karyo = x, 
-        ncores = 1,
-        minFrags = minFrags)   
+        ncores = 1, minFrags = minFrags)   

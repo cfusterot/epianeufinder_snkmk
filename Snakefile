@@ -35,7 +35,7 @@ def get_resource(rule,resource):
 # -- Final output -- #
 rule all:
     input:
-        expand("{OUTDIR}/{sample}/epianeufinder_results/Karyogram.png", sample=samples['sample'],OUTDIR=OUTDIR),
+        expand("{OUTDIR}/{sample}/epiAneufinder_results/Karyogram.png", sample=samples['sample'],OUTDIR=OUTDIR),
 
 # -- Rule files -- #
 include: "rules/epianeufinder.smk"
